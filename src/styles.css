@@ -1,1 +1,1697 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  list-style-type: none;
+  outline: 0;
+  font-family: "Raleway", sans-serif;
+}
+
+:root {
+  --main-black-color: #000000;
+  --main-white-color: #ffffff;
+  --main-blue-color: #172e54;
+  --main-green-color: #bee1c1;
+  --main-vertprincipale-color: rgb(85, 194, 168);
+  --main-darkgreen-color: #49605b;
+  --main-saumon-color: #eb7e70;
+  --main-opacity-saumon-color: rgba(235, 126, 112, 0.5);
+  --main-miel-color: rgba(245, 186, 60, 1);
+}
+
+header {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  top: 0;
+  left: 0;
+  /* border-bottom: solid 1px var(--main-blue-color); */
+}
+
+.navbar-area {
+  background: var(--main-white-color);
+  height: 90px;
+}
+
+.contain {
+  height: 100%;
+}
+
+.site-navbar {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a.site-logo {
+  padding: 10px 0 0 3px;
+}
+
+a.site-logo svg {
+  height: 132px;
+  margin: 14px 0 0 5px;
+}
+
+.site-navbar ul li {
+  padding: 0 5px;
+}
+
+.site-navbar ul li a {
+  color: var(--main-blue-color);
+  display: block;
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.site-navbar li a {
+  display: block;
+  padding: 0 10px;
+  text-decoration: none;
+}
+
+.site-navbar li a:after {
+  content: "";
+  display: block;
+  height: 1px;
+  background: var(--main-miel-color);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+  margin-top: 7px;
+}
+
+.site-navbar li a:hover:after {
+  transform: scaleX(1);
+  transition: transform 0.3s;
+  margin-top: 7px;
+}
+
+.nav-toggler {
+  padding: 5px;
+  background-color: transparent;
+  cursor: pointer;
+  height: 40px;
+  margin: 20px;
+  display: none;
+  border: none;
+}
+
+.nav-toggler span,
+.nav-toggler span:after,
+.nav-toggler span:before {
+  width: 28px;
+  height: 2px;
+  background-color: var(--main-green-color);
+  display: block;
+  transition: 0.2s;
+}
+
+.nav-toggler span:before {
+  content: "";
+  transform: translateY(-9px);
+  width: 35px;
+  background-color: var(--main-blue-color);
+}
+
+.nav-toggler span:after {
+  content: "";
+  transform: translateY(6px);
+  width: 35px;
+  background-color: var(--main-blue-color);
+}
+
+.nav-toggler.toggler-open span {
+  background-color: transparent;
+}
+
+.nav-toggler.toggler-open span:before {
+  transform: translateY(0) rotate(45deg);
+}
+
+.nav-toggler.toggler-open span:after {
+  transform: translateY(-3px) rotate(-45deg);
+}
+
+@media screen and (max-width: 1024px) {
+  .site-navbar li a:after {
+    content: "";
+    display: none;
+    height: 1px;
+    background: var(--main-blue-color);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    margin-top: 7px;
+  }
+
+  .nav-toggler {
+    display: block;
+  }
+
+  .site-navbar {
+    min-height: 60px;
+  }
+
+  .site-navbar ul {
+    position: absolute;
+    width: 100%;
+    height: 320px;
+    left: 0;
+    top: 90px;
+    flex-direction: column;
+    align-items: center;
+    background: var(--main-white-color);
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .site-navbar ul li {
+    width: 100%;
+    padding: 0 0;
+    text-align: center;
+  }
+
+  .site-navbar ul li a {
+    padding: 23px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .site-navbar ul li a:focus,
+  .site-navbar ul li a:hover {
+    background-color: var(--main-miel-color);
+    color: var(--main-saumon-color);
+    font-weight: 800;
+  }
+
+  .site-navbar ul.open {
+    max-height: 60vh;
+    overflow: visible;
+  }
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+
+h1 {
+  font-size: 56px;
+  line-height: 48px;
+  padding: 20px 14px;
+  font-weight: 700;
+}
+
+.left h2 {
+  font-size: 30px;
+  padding: 15px;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 34px;
+  padding: 25px 0 15px 0;
+  line-height: 48px;
+  font-weight: 700;
+}
+
+/*******  Formulaire *******/
+
+/*******  Fin Formulaire *******/
+
+.contain h2 {
+  padding: 35px;
+  color: var(--main-white-color);
+  font-weight: 500;
+}
+
+.testimonials h2 {
+  color: var(--main-miel-color);
+  font-size: 34px;
+  padding: 20px;
+  font-weight: 700;
+}
+
+@-webkit-keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translatex(-10px);
+    -moz-transform: translatex(-10px);
+    -o-transform: translatex(-10px);
+    transform: translatex(-10px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translatex(0);
+    -moz-transform: translatex(0);
+    -o-transform: translatex(0);
+    transform: translatex(0);
+  }
+}
+
+@-moz-keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translatex(-10px);
+    -moz-transform: translatex(-10px);
+    -o-transform: translatex(-10px);
+    transform: translatex(-10px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translatex(0);
+    -moz-transform: translatex(0);
+    -o-transform: translatex(0);
+    transform: translatex(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translatex(-100px);
+    -moz-transform: translatex(-100px);
+    -o-transform: translatex(-100px);
+    transform: translatex(-100px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translatex(0);
+    -moz-transform: translatex(0);
+    -o-transform: translatex(0);
+    transform: translatex(0);
+  }
+}
+
+.first .one h1 {
+  -webkit-animation-name: fadeInLeft;
+  -moz-animation-name: fadeInLeft;
+  -o-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.4s;
+  -moz-animation-duration: 0.4s;
+  -o-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  -o-animation-duration: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.first .one h2 {
+  -webkit-animation-name: fadeInLeft;
+  -moz-animation-name: fadeInLeft;
+  -o-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.8s;
+  -moz-animation-duration: 0.8s;
+  -o-animation-duration: 0.8s;
+  animation-duration: 0.8s;
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  -o-animation-duration: 0.8s;
+  animation-delay: 0.8s;
+}
+
+.first .one h3 {
+  -webkit-animation-name: fadeInLeft;
+  -moz-animation-name: fadeInLeft;
+  -o-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1.2s;
+  -moz-animation-duration: 1.2s;
+  -o-animation-duration: 1.2s;
+  animation-duration: 1.2s;
+  -webkit-animation-delay: 1.2s;
+  -moz-animation-delay: 1.2s;
+  -o-animation-duration: 1.2s;
+  animation-delay: 1.2s;
+  line-height: 44px;
+}
+
+.call_to_action {
+  margin: 25px 0 75px 0;
+  -webkit-animation-name: fadeInLeft;
+  -moz-animation-name: fadeInLeft;
+  -o-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1.6s;
+  -moz-animation-duration: 1.6s;
+  -o-animation-duration: 1.6s;
+  animation-duration: 1.6s;
+  -webkit-animation-delay: 1.6s;
+  -moz-animation-delay: 1.6s;
+  -o-animation-duration: 1.6s;
+  animation-delay: 1.6s;
+}
+
+h3 {
+  font-size: 28px;
+  padding: 65px 40px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.second p {
+  line-height: 36px;
+  font-size: 15px;
+  text-align: left;
+  font-weight: 500;
+  padding: 20px;
+}
+
+p {
+  line-height: 36px;
+  font-size: 22px;
+  text-align: left;
+  font-weight: 400;
+}
+
+.btnPopup {
+  display: none;
+}
+
+section {
+  float: left;
+  height: 700px;
+  display: table;
+  text-align: center;
+  width: 100%;
+}
+
+section.first {
+  width: 100%;
+  height: 100%;
+}
+
+section.first {
+  background: rgb(85, 194, 168);
+  background: -moz-linear-gradient(
+    90deg,
+    rgba(85, 194, 168, 0.2) 0%,
+    rgba(85, 194, 168, 0.6) 36%,
+    rgba(85, 194, 168, 0.6) 50%,
+    rgba(85, 194, 168, 0.8) 62%,
+    rgba(85, 194, 168, 0.9) 80%,
+    rgba(85, 194, 168, 0.9) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(85, 194, 168, 0.2) 0%,
+    rgba(85, 194, 168, 0.6) 36%,
+    rgba(85, 194, 168, 0.6) 50%,
+    rgba(85, 194, 168, 0.8) 62%,
+    rgba(85, 194, 168, 0.9) 80%,
+    rgba(85, 194, 168, 0.9) 100%
+  );
+  background: linear-gradient(
+    90deg,
+    rgba(85, 194, 168, 0.2) 0%,
+    rgba(85, 194, 168, 0.6) 36%,
+    rgba(85, 194, 168, 0.6) 50%,
+    rgba(85, 194, 168, 0.8) 62%,
+    rgba(85, 194, 168, 0.9) 80%,
+    rgba(85, 194, 168, 0.9) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#55c2a8", endColorstr="#55c2a8", GradientType=1);
+  color: var(--main-white-color);
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 700px;
+  display: table;
+}
+
+section.first:before {
+  content: "";
+  background: url(assets/images/roof-insulation.jpg) no-repeat center
+    center/cover;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+section div.one {
+  width: 65%;
+  height: 100%;
+  float: left;
+  padding: 100px 25px 0 25px;
+}
+
+section div.two {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section.second {
+  background: var(--main-white-color);
+  width: 100%;
+  height: 650px;
+  text-align: center;
+}
+
+#fonctionnement h2 {
+  font-size: 28px;
+}
+
+section.second h3:nth-child(2) {
+  margin: 30px 0;
+  font-size: 20px;
+  color: var(--main-blue-color);
+}
+
+article .text_introduce {
+  width: 900px;
+  margin: 0 auto;
+}
+
+section.expertise_energetique {
+  display: table-cell;
+  vertical-align: middle;
+  height: 775px;
+}
+
+section.expertise_energetique article {
+  margin: 0 auto;
+  width: 900px;
+}
+
+section.expertise_energetique article h3 {
+  margin: 50px;
+  font-size: 30px;
+  position: relative;
+  font-weight: 700;
+  display: inline-block;
+}
+
+section.expertise_energetique article .steps {
+  margin-bottom: 10px;
+}
+
+section.expertise_energetique article .steps .stage {
+  margin: 10px;
+  width: 300px;
+  height: 100px;
+  display: inline-block;
+  overflow: hidden;
+}
+
+section.expertise_energetique article .steps .stage .number {
+  background: var(--main-blue-color);
+  width: 80px;
+  height: 80px;
+  line-height: 70px;
+  border-radius: 100%;
+  float: left;
+  color: var(--main-white-color);
+  font-size: 52px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+section.expertise_energetique article .steps .stage .infos {
+  float: left;
+  display: table;
+  text-align: left;
+  height: 80px;
+  width: 210px;
+}
+
+section.expertise_energetique article .block {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+section.expertise_energetique article .steps .stage h4 {
+  font-size: 24px;
+  line-height: 20px;
+  margin-bottom: 4px;
+}
+
+section.expertise_energetique .slogan {
+  margin-bottom: 30px;
+  font-size: 22px;
+}
+
+section.expertise_energetique article .steps .stage p {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+}
+
+.steps {
+  margin-bottom: 40px;
+}
+
+.steps .case {
+  margin: 10px;
+  width: 282px;
+  height: 110px;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.steps .case .check {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  float: left;
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+.contenu {
+  float: left;
+  display: table;
+  text-align: left;
+  height: 120px;
+  width: 200px;
+}
+
+.contenu h4 {
+  font-size: 20px;
+  line-height: 20px;
+  margin-bottom: 5px;
+}
+
+.contenu p {
+  line-height: 16px;
+  font-size: 14px;
+  text-align: left;
+  font-weight: 400;
+  padding: 0;
+}
+
+.avantages {
+  width: 900px;
+  margin: 0 auto;
+  color: var(--main-white-color);
+}
+
+.sondage {
+  color: var(--main-saumon-color);
+}
+
+.cold {
+  color: var(--main-blue-color);
+  font-weight: 600;
+}
+
+section.right {
+  width: 35%;
+  float: left;
+  display: table;
+  height: 100%;
+  background: var(--main-blue-color);
+}
+
+section.third {
+  background: var(--main-blue-color);
+  height: 725px;
+}
+
+.faq {
+  background: var(--main-blue-color);
+  height: 750px;
+}
+
+.accordion {
+  width: 82%;
+  max-width: 900px;
+  text-align: left;
+  margin: 30px auto;
+}
+
+.accordion-item {
+  background-color: var(--main-white-color);
+  color: #2d3142;
+  margin: 16px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px 0 var(--main-green-color);
+}
+
+.accordion-item-header {
+  padding: 8px 48px 8px 16px;
+  min-height: 56px;
+  line-height: 20px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.accordion-item-header::after {
+  content: "\002B";
+  font-size: 42px;
+  position: absolute;
+  right: 16px;
+  font-weight: 200;
+}
+
+.accordion-item-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.accordion-item-body-content {
+  padding: 16px;
+  font-size: 13px;
+  line-height: 24px;
+  text-align: left;
+  border-top: 1px solid;
+  border-image: linear-gradient(
+      to right,
+      transparent,
+      var(--main-green-color),
+      transparent
+    )
+    1;
+}
+
+section.partners {
+  background-color: var(--main-white-color);
+  height: 150px;
+  width: 100%;
+}
+
+section.partners h2 {
+  color: var(--main-blue-color);
+  font-weight: 500;
+  font-size: 22px;
+}
+
+section.copyright {
+  height: 25px;
+  background: var(--main-blue-color);
+  width: 100%;
+}
+
+.mentions {
+  display: flex;
+  margin: 0 auto;
+}
+
+.mentions li {
+  line-height: 25px;
+  font-size: 13px;
+  font-weight: 300;
+  margin: auto;
+  color: var(--main-white-color);
+}
+
+.mentions li a {
+  text-decoration: none;
+  color: var(--main-white-color);
+}
+
+/* .selekt {
+  font-size: 16px;
+  position: absolute;
+  color: var(--main-white-color);
+}
+.styled-select {
+  text-align: left;
+}
+
+.login-box {
+  position: relative;
+  width: 100%;
+  background: 0 0;
+  box-sizing: border-box;
+}
+
+.login-box h2 {
+  margin: 85px 0 0;
+  padding: 5px 0 0;
+  font-size: 42px;
+  color: var(--main-white-color);
+  font-weight: 700;
+  text-align: center;
+}
+
+.login-box h4 {
+  color: var(--main-white-color);
+  margin: 7px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-size: 12px;
+  margin: 35px 0;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input,
+.selekt,
+.styled-select,
+select {
+  font-family: "arial", sans-serif;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 22px;
+  color: var(--main-white-color);
+  margin-bottom: 34px;
+  border: none;
+  border-bottom: 1px solid var(--main-green-color);
+  outline: 0;
+  background: 0 0;
+}
+
+.login-box .user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--main-white-color);
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: var(--main-green-color);
+  font-size: 13px;
+}
+
+.login-box input {
+  height: 100%;
+  border: none;
+  background: #0000;
+}
+
+select {
+  width: 100%;
+  margin: 26px 0;
+  color: var(--main-white-color);
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  background: var(--main-bluelight-color);
+  border: solid 1px var(--main-green-color);
+}
+
+select option {
+  cursor: pointer;
+  margin: 5px;
+  font-size: 20px;
+  color: var(--main-blue-color);
+}
+
+input[type="submit"] {
+  background: linear-gradient(to bottom, #bee1c1e6 50%, #bee1c1 100%);
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: var(--main-white-color);
+  font-size: 18px;
+  padding: 10px 30px;
+  text-decoration: none;
+}
+
+input[type="submit"]:hover {
+  background: var(--main-miel-color);
+}
+
+input[type="submit"]:active {
+  position: relative;
+  top: 5px;
+}
+
+input[type="submit"]:focus-within {
+  background: var(--main-saumon-color);
+  color: var(--main-white-color);
+} */
+
+.call_to_action svg {
+  transform: rotate(50deg);
+  position: absolute;
+  margin: 40px 0 0 -20px;
+}
+
+.button_orange {
+  background: var(--main-miel-color);
+  border-radius: 8px;
+  display: inline-block;
+  color: var(--main-blue-color);
+  cursor: pointer;
+  padding: 10px 30px;
+}
+
+.button_orange a {
+  color: var(--main-blue-color);
+  font-size: 17px;
+  text-decoration: none;
+}
+
+.button_orange:hover {
+  background: var(--main-saumon-color);
+  color: var(--main-white-color);
+}
+
+.button_orange:active {
+  position: relative;
+  top: 5px;
+}
+
+.testimonials {
+  height: 400px;
+  background: #f3f3f3;
+}
+
+.pictures {
+  display: inline-flex;
+  margin: 15px auto;
+}
+
+.pict_1 {
+  background-image: url(assets/images/45.jpeg);
+  height: 199px;
+  position: relative;
+  text-align: center;
+  border-radius: 10px;
+  width: 265px;
+  color: var(--main-black-color);
+  background-size: cover;
+  margin-right: 10px;
+}
+
+.pict_2 {
+  background-image: url(assets/images/456.jpeg);
+  height: 199px;
+  position: relative;
+  text-align: center;
+  border-radius: 10px;
+  width: 265px;
+  color: var(--main-black-color);
+  background-size: cover;
+  margin-right: 10px;
+}
+
+.text_center {
+  position: absolute;
+  color: var(--main-miel-color);
+  top: 50%;
+  left: 50%;
+  font-size: 33px;
+  font-weight: 700;
+  transform: translate(-50%, -50%);
+}
+
+.brand {
+  width: 900px;
+  height: 130px;
+  margin: 30px auto;
+}
+
+.brand ul {
+  display: inline-flex;
+}
+
+.brand li img {
+  height: 125px;
+  padding: 10px;
+}
+
+.contain {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  overflow: hidden !important;
+}
+
+#haut {
+  display: block;
+  position: fixed;
+  bottom: 95px;
+  right: 20px;
+  z-index: 999;
+  border: none;
+  outline: 0;
+  background-color: var(--main-miel-color);
+  color: var(--main-white-color);
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 18px;
+}
+
+#haut:hover {
+  background-color: var(--main-saumon-color);
+}
+
+#primo {
+  display: none;
+}
+
+.retour p {
+  line-height: 48px;
+  font-size: 40px;
+  padding: 100px 30px;
+  text-align: center;
+  font-weight: 700;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  h1,
+  h2,
+  h3,
+  p {
+    padding: 9px;
+  }
+
+  h1 {
+    margin-top: 90px;
+    font-size: 30px;
+  }
+
+  section.third h2 {
+    font-weight: 600;
+    font-size: 24px;
+  }
+
+  .left h2 {
+    font-size: 22px;
+    padding: 5px;
+    line-height: 30px;
+    font-weight: 700;
+    margin-top: 20px;
+  }
+
+  h3 {
+    font-size: 22px;
+    margin: 20px 0;
+    line-height: 32px;
+  }
+
+  p {
+    font-size: 16px;
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  .retour p {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 40px;
+    padding: 100px 25px;
+    text-align: center;
+  }
+
+  .steps .case {
+    margin: 10px;
+    width: 282px;
+    height: 100px;
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  section.left {
+    background: rgba(23, 46, 84, 0.8);
+  }
+
+  section.left:before {
+    content: "";
+    background: url(assets/images/isover_deroulant.jpeg) no-repeat center
+      center/cover;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .btnPopup {
+    background: var(--main-bluelight-color);
+    float: right;
+    cursor: pointer;
+    width: 75px;
+    border: none;
+    margin: 10px 63px 0 0;
+    height: 75px;
+    border-radius: 50%;
+    z-index: 2000;
+    display: block;
+  }
+
+  .btnPopup a {
+    text-decoration: none;
+  }
+
+  .btnPopup h5 {
+    color: var(--main-white-color);
+  }
+
+  .btnPopup:hover {
+    background: var(--main-yellowopacity-color);
+  }
+
+  .block p {
+    font-size: 10px;
+  }
+
+  .call_to_action svg {
+    transform: rotate(50deg);
+    position: absolute;
+    margin: 40px 0 0 10px;
+  }
+
+  .avantages,
+  .steps {
+    width: 100%;
+  }
+
+  .case {
+    width: 280px;
+  }
+
+  section.third {
+    height: 900px;
+  }
+
+  .pictures {
+    display: inline-block;
+    margin: 5px auto;
+  }
+
+  .pict_1 {
+    height: 210px;
+    width: 280px;
+    background-size: cover;
+    border-radius: 10px;
+    margin: 0 0 50px;
+    color: var(--main-bg-opacity-color);
+  }
+
+  .pict_2 {
+    height: 210px;
+    width: 280px;
+    background-size: cover;
+    border-radius: 10px;
+    margin: 0 0 50px;
+    color: var(--main-bg-opacity-color);
+  }
+
+  .regroup {
+    height: 400px;
+  }
+
+  .button_orange a {
+    color: var(--main-white-color);
+    font-size: 17px;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .contenu h4 {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 5px;
+  }
+
+  .contenu p {
+    line-height: 17px;
+    font-size: 13px;
+    text-align: left;
+    font-weight: 400;
+    padding: 0;
+  }
+
+  .brand {
+    width: 100%;
+    height: 130px;
+    margin: 30px auto;
+  }
+
+  .brand ul {
+    display: inline-block;
+  }
+
+  .brand ul li {
+    display: inline-block;
+    padding: 0 10px;
+  }
+
+  section.partners {
+    background-color: var(--main-white-color);
+    height: 400px;
+    width: 100%;
+  }
+
+  .brand li img {
+    height: 85px;
+    padding: 6px;
+  }
+
+  .accordion-item-header {
+    font-size: 11px;
+    align-items: center;
+  }
+
+  button#haut {
+    display: none !important;
+  }
+
+  article .text_introduce {
+    width: 100%;
+  }
+
+  section.expertise_energetique {
+    height: 900px;
+    background: #f3f3f3;
+  }
+
+  section.expertise_energetique article {
+    width: 100%;
+  }
+
+  section.expertise_energetique article .steps .stage {
+    margin: 10px;
+    width: 280px;
+    height: 100px;
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  section.expertise_energetique article .steps .stage p {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+    padding: 10px;
+  }
+
+  section.expertise_energetique article .steps .stage .number {
+    width: 65px;
+    height: 65px;
+    line-height: 55px;
+    border-radius: 100%;
+    font-size: 44px;
+    margin: 0;
+    font-weight: 700;
+  }
+
+  section.expertise_energetique article h3 {
+    margin: 20px 0 25px 0;
+    font-size: 28px;
+  }
+
+  section.expertise_energetique article .steps .stage h4 {
+    font-size: 22px;
+    line-height: 18px;
+    margin-bottom: -20px;
+    text-align: center;
+  }
+
+  section.expertise_energetique .slogan {
+    margin: 5px auto 30px auto;
+    font-size: 15px;
+    width: 275px;
+  }
+
+  section.expertise_energetique article .block {
+    padding: 0;
+  }
+
+  #primo {
+    display: block;
+    margin: 50px 0;
+  }
+
+  .mentions {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .mentions li {
+    font-size: 12px;
+    margin-top: 25px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  section.left {
+    background: rgba(23, 46, 84, 0.7);
+  }
+
+  section.left:before {
+    content: "";
+    background: url(assets/images/insulation.jpeg) no-repeat center center/cover;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  h1 {
+    font-size: 44px;
+    padding: 30px 0;
+    font-weight: 700;
+  }
+
+  .left h2 {
+    font-size: 24px;
+    padding: 14px;
+    font-weight: 600;
+    line-height: 32px;
+    margin-top: 20px;
+  }
+
+  #fotografia_pont_thermiques {
+    height: 250px;
+  }
+
+  .avantages {
+    width: 100%;
+  }
+
+  .steps {
+    width: 450px;
+    margin: 0 auto;
+  }
+
+  .btnPopup {
+    background: var(--main-bluelight-color);
+    float: right;
+    cursor: pointer;
+    width: 75px;
+    border: none;
+    margin: 10px 85px 0 0;
+    height: 75px;
+    border-radius: 50%;
+    z-index: 2000;
+    display: block;
+  }
+
+  .btnPopup a {
+    text-decoration: none;
+  }
+
+  .btnPopup h5 {
+    color: var(--main-white-color);
+  }
+
+  .btnPopup:hover {
+    background: var(--main-miel-color);
+  }
+
+  .pictures {
+    display: inline-block;
+    margin: 5px auto;
+  }
+
+  .pict_1 {
+    height: 322px;
+    width: 430px;
+    background-size: cover;
+    border-radius: 10px;
+    margin: 0 0 50px;
+  }
+
+  .pict_2 {
+    height: 322px;
+    width: 430px;
+    border-radius: 10px;
+    background-size: cover;
+    margin: 0 0 50px;
+  }
+
+  .regroup {
+    height: 100%;
+  }
+
+  article .text_introduce {
+    width: 100%;
+  }
+
+  section.expertise_energetique {
+    height: 930px;
+  }
+
+  section.expertise_energetique article {
+    width: 100%;
+  }
+
+  section.expertise_energetique article h3 {
+    margin: 0;
+    font-size: 32px;
+  }
+
+  section.expertise_energetique article .steps .stage h4 {
+    font-size: 20px;
+  }
+
+  section.expertise_energetique article .block {
+    padding: 3px;
+  }
+
+  section.expertise_energetique .slogan {
+    margin: 50px;
+    font-size: 18px;
+  }
+
+  section.partners {
+    background-color: var(--main-white-color);
+    height: 600px;
+    width: 100%;
+  }
+
+  .brand {
+    width: 100%;
+    height: 130px;
+    margin: 30px auto;
+  }
+
+  .brand ul {
+    margin: 0;
+    font-size: 0;
+    display: inline-block;
+  }
+
+  .brand ul li {
+    display: inline-block;
+    padding: 0 15px;
+  }
+
+  .brand li img {
+    height: 115px;
+    padding: 10px;
+  }
+
+  .accordion-item-header {
+    font-size: 13px;
+    align-items: start;
+  }
+
+  button#haut {
+    display: none !important;
+  }
+
+  #primo {
+    display: block;
+  }
+
+  .mentions {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .mentions li {
+    font-size: 13px;
+    margin-top: 25px;
+    font-weight: 300;
+  }
+
+  .retour p {
+    line-height: 34px;
+    font-size: 30px;
+    text-align: center;
+    font-weight: 500;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .login-box {
+    position: relative;
+    width: 500px;
+    background: #0000;
+    box-sizing: border-box;
+    margin: 0 auto;
+    display: table;
+  }
+
+  .login-box h2 {
+    margin: 0 0 35px;
+    padding: 0;
+    font-size: 36px;
+    color: var(--main-white-color);
+    font-weight: 600;
+    text-align: center;
+  }
+
+  section.left:before {
+    content: "";
+    background: url(assets/images/insulation.jpeg) no-repeat center center/cover;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  section.left {
+    background: rgba(23, 46, 84, 0.7);
+  }
+
+  .btnPopup {
+    background: var(--main-bluelight-color);
+    float: right;
+    cursor: pointer;
+    width: 75px;
+    border: none;
+    margin: 10px 63px 0 0;
+    height: 75px;
+    border-radius: 50%;
+    z-index: 2000;
+    display: block;
+  }
+
+  .btnPopup a {
+    text-decoration: none;
+  }
+
+  .btnPopup h5 {
+    color: var(--main-white-color);
+  }
+
+  #fotografia_pont_thermiques {
+    height: 370px;
+  }
+
+  .btnPopup:hover {
+    background: var(--main-miel-color);
+  }
+
+  section.right {
+    margin-top: 0;
+  }
+
+  section.second {
+    background: var(--main-white-color);
+    width: 100%;
+    height: 700px;
+    text-align: center;
+  }
+
+  .avantages {
+    width: 100%;
+  }
+
+  section.third {
+    height: 1035px;
+  }
+
+  section.third .case {
+    width: 300px;
+  }
+
+  section.third .steps {
+    width: 100%;
+  }
+
+  .pictures {
+    display: inline-block;
+    margin: 50px auto;
+  }
+
+  .pict_1 {
+    height: 322px;
+    width: 430px;
+    background-size: cover;
+    border-radius: 10px;
+    margin: 0 0 50px;
+    color: var(--main-bg-opacity-color);
+  }
+
+  .pict_2 {
+    height: 322px;
+    width: 430px;
+    background-size: cover;
+    border-radius: 10px;
+    margin: 0 0 50px;
+    color: var(--main-bg-opacity-color);
+  }
+
+  article .text_introduce {
+    width: 100%;
+  }
+
+  section.expertise_energetique article {
+    width: 100%;
+  }
+
+  section.expertise_energetique article .steps .stage {
+    width: 320px;
+  }
+
+  section.expertise_energetique article .block {
+    padding: 3px;
+  }
+
+  section.expertise_energetique .slogan {
+    margin-bottom: 25px;
+    font-size: 19px;
+  }
+
+  section.partners {
+    width: 100%;
+  }
+
+  section.partners .brand {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .brand li img {
+    height: 100px;
+    padding: 5px;
+  }
+
+  section.partners ul {
+    width: 650px;
+    margin: 0 auto;
+  }
+
+  button#haut {
+    display: none !important;
+  }
+
+  #primo {
+    display: block;
+  }
+
+  .mentions {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .mentions li {
+    font-size: 14px;
+    margin-top: 25px;
+  }
+
+  .retour p {
+    line-height: 42px;
+    font-size: 38px;
+    text-align: center;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 1024px) {
+  section div.one {
+    width: 100%;
+    height: 600px;
+    padding: 5px;
+  }
+
+  section div.two {
+    width: 100%;
+    height: 600px;
+    padding: 0;
+  }
+
+  .block {
+    padding: 20px;
+  }
+
+  section.second {
+    padding: 15px;
+  }
+
+  section.second article {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/*************    Page corporation.php   **************/
+
+#mission,
+#reglement,
+.response {
+  height: 200vh;
+  text-align: center;
+}
+
+.mission_cadre,
+.reglement_cadre,
+.retour {
+  width: 100%;
+  margin: 125px auto;
+  text-align: center;
+  color: var(--main-blue-color);
+}
+
+.mission_cadre h2 {
+  font-size: 26px;
+  padding: 115px 0 30px 0;
+  line-height: 38px;
+  font-weight: 700;
+}
+
+.mission_cadre p {
+  padding: 100px;
+}
+
+.reglement_cadre h2 {
+  text-align: center;
+}
+
+.reglement_cadre {
+  text-align: left;
+}
+
+.reglement_cadre p {
+  font-size: 15px;
+  padding: 100px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
